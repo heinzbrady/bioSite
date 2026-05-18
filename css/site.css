@@ -8,36 +8,46 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f2f2f2;
+    background: linear-gradient(180deg, #f7f5fb 0%, #eeeeee 100%);
     color: #000000;
     line-height: 1.6;
 }
 
 header {
-    background-color: #512888;
+    background: linear-gradient(135deg, #512888 0%, #2f174f 100%);
     color: #ffffff;
     text-align: center;
-    padding: 32px 16px;
+    padding: 46px 16px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+    animation: fadeDown 0.8s ease-in-out;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     letter-spacing: 1px;
 }
 
 header p {
-    margin: 8px 0 0;
-    font-size: 1.1rem;
+    margin: 10px 0 0;
+    font-size: 1.15rem;
 }
 
 nav {
     background-color: #333333;
     text-align: center;
-    padding: 12px;
+    padding: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
@@ -45,23 +55,35 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     margin: 0 18px;
+    padding: 6px 2px;
+    transition: color 0.3s ease, border-bottom 0.3s ease, padding-bottom 0.3s ease;
 }
 
 nav a:hover {
-    color: #a7a8aa;
+    color: #d8c2ff;
+    border-bottom: 2px solid #d8c2ff;
+    padding-bottom: 4px;
 }
 
 main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 32px 20px;
+    padding: 44px 20px;
+    animation: fadeIn 0.9s ease-in-out;
 }
 
 section {
     background-color: #ffffff;
-    margin-bottom: 28px;
-    padding: 24px;
-    border-radius: 8px;
+    margin-bottom: 40px;
+    padding: 32px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
 h2 {
@@ -79,29 +101,50 @@ h3 {
     width: 100%;
     max-width: 460px;
     display: block;
-    margin: 0 auto 20px;
-    border-radius: 8px;
+    margin: 0 auto 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
 }
 
 .image-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 28px;
 }
 
 .card {
-    background-color: #f2f2f2;
-    padding: 16px;
-    border-radius: 8px;
+    background-color: #f7f7f7;
+    padding: 18px;
+    border-radius: 12px;
     border-top: 6px solid #512888;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+    background-color: #ffffff;
 }
 
 .card img {
     width: 100%;
-    height: 240px;
+    height: 255px;
     object-fit: cover;
     object-position: top;
-    border-radius: 6px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.03);
+    filter: brightness(1.04);
 }
 
 .caption {
@@ -112,29 +155,80 @@ h3 {
 .about-layout {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 28px;
+    gap: 34px;
     align-items: start;
 }
 
 .about-layout img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-layout img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
 }
 
 footer {
     background-color: #333333;
     color: #ffffff;
     text-align: center;
-    padding: 18px;
-    margin-top: 28px;
+    padding: 22px;
+    margin-top: 34px;
+    box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.16);
 }
 
 .external-link {
     color: #512888;
     font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.external-link:hover {
+    color: #2f174f;
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 800px) {
+    header h1 {
+        font-size: 2.1rem;
+    }
+
+    main {
+        padding: 28px 16px;
+    }
+
+    section {
+        padding: 24px;
+    }
+
     .image-grid,
     .about-layout {
         grid-template-columns: 1fr;
